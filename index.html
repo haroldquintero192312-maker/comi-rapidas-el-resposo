@@ -1,0 +1,1290 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comi Rápidas El Resposo | Sabor casero</title>
+    <meta name="description" content="Consulta nuestro menú, arma tu pedido y solicita tu domicilio por WhatsApp.">
+
+    <style>
+        :root {
+            --rojo: #c62828;
+            --rojo-oscuro: #991b1b;
+            --naranja: #ff8f00;
+            --crema: #fff8ed;
+            --blanco: #ffffff;
+            --texto: #29231f;
+            --gris: #716860;
+            --verde: #25d366;
+            --sombra: 0 8px 25px rgba(75, 45, 20, 0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--texto);
+           background-color: var(--crema);
+background-image: url("imagenes/fondo.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button, select, input, textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .contenedor {
+            width: min(1150px, 92%);
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--rojo);
+            color: var(--blanco);
+            padding: 18px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .encabezado {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            display: grid;
+            place-items: center;
+            width: 55px;
+            height: 55px;
+            background: var(--blanco);
+            color: var(--rojo);
+            border-radius: 50%;
+            font-size: 29px;
+            flex-shrink: 0;
+        }
+
+        .marca h2 {
+            font-size: clamp(18px, 3vw, 25px);
+            line-height: 1.2;
+        }
+
+        .marca p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .boton-menu {
+            background: var(--naranja);
+            color: #291600;
+            padding: 11px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .boton-menu:hover {
+            background: #ffb52e;
+            transform: translateY(-2px);
+        }
+
+        .bienvenida {
+            padding: 65px 0 55px;
+            background:
+                radial-gradient(circle at top right, #ffe1a5 0, transparent 36%),
+                linear-gradient(135deg, #fff8ed, #fff0d8);
+            text-align: center;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            background: #ffe3dc;
+            color: var(--rojo-oscuro);
+            padding: 7px 17px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .bienvenida h1 {
+            max-width: 850px;
+            margin: 0 auto 15px;
+            font-size: clamp(30px, 5vw, 49px);
+            line-height: 1.15;
+            color: var(--rojo-oscuro);
+        }
+
+        .bienvenida h1 span {
+            color: var(--naranja);
+        }
+
+        .descripcion {
+            max-width: 700px;
+            margin: 0 auto 22px;
+            color: var(--gris);
+            font-size: 17px;
+        }
+
+        .zonas {
+            margin: 20px auto 27px;
+            color: var(--texto);
+            font-size: 14px;
+        }
+
+        .zonas strong {
+            color: var(--rojo-oscuro);
+        }
+
+        .boton-principal {
+            display: inline-block;
+            border: none;
+            background: var(--rojo);
+            color: white;
+            border-radius: 30px;
+            padding: 14px 27px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .boton-principal:hover {
+            background: var(--rojo-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .seccion-menu {
+            padding: 55px 0 65px;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titulo-seccion .subtitulo {
+            color: var(--rojo);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .titulo-seccion h2 {
+            color: var(--rojo-oscuro);
+            font-size: clamp(27px, 4vw, 37px);
+            margin: 5px 0;
+        }
+
+        .titulo-seccion p {
+            color: var(--gris);
+        }
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .producto {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            background: var(--blanco);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            border: 1px solid #f0e6db;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 13px 30px rgba(75, 45, 20, 0.16);
+        }
+
+        .imagen-producto {
+            height: 190px;
+            padding: 12px;
+            background: #fffdf9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .imagen-producto img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .contenido-producto {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .contenido-producto h3 {
+            color: var(--rojo-oscuro);
+            font-size: 19px;
+            line-height: 1.3;
+            margin-bottom: 7px;
+        }
+
+        .descripcion-producto {
+            color: var(--gris);
+            font-size: 13px;
+            margin-bottom: 13px;
+            flex: 1;
+        }
+
+        .precio {
+            color: var(--rojo);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .opciones-precio {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 10px;
+            border: 1px solid #e7d8c8;
+            border-radius: 9px;
+            background: #fffaf3;
+            color: var(--texto);
+        }
+
+        .boton-producto {
+            display: block;
+            width: 100%;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            background: var(--verde);
+            color: #073b1b;
+            padding: 11px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .boton-producto:hover {
+            background: #19b957;
+        }
+
+        .boton-agregar {
+            background: var(--rojo);
+            color: white;
+            margin-top: 9px;
+        }
+
+        .boton-agregar:hover {
+            background: var(--rojo-oscuro);
+        }
+
+        .seccion-carrito {
+            padding: 50px 0;
+            background: #fff0d8;
+        }
+
+        .caja-carrito {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: var(--sombra);
+        }
+
+        .cabecera-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .cabecera-carrito h2 {
+            color: var(--rojo-oscuro);
+            font-size: 25px;
+        }
+
+        .contador {
+            background: #ffe3dc;
+            color: var(--rojo-oscuro);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .carrito-vacio {
+            text-align: center;
+            color: var(--gris);
+            padding: 20px 0;
+        }
+
+        .articulo-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee3d8;
+        }
+
+        .datos-articulo {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .datos-articulo strong {
+            display: block;
+            overflow-wrap: anywhere;
+        }
+
+        .datos-articulo small {
+            color: var(--gris);
+        }
+
+        .controles-cantidad {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .boton-cantidad {
+            border: none;
+            background: #ffe3dc;
+            color: var(--rojo-oscuro);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .boton-eliminar {
+            border: none;
+            background: transparent;
+            color: #b42318;
+            font-size: 12px;
+            margin-top: 4px;
+            text-decoration: underline;
+        }
+
+        /* FORMULARIO DE DOMICILIO */
+
+        .formulario-domicilio {
+            margin-top: 28px;
+            padding: 22px;
+            background: #fffaf3;
+            border: 1px solid #f0dfcd;
+            border-radius: 15px;
+        }
+
+        .formulario-domicilio h3 {
+            color: var(--rojo-oscuro);
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .texto-formulario {
+            color: var(--gris);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .rejilla-formulario {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 0;
+        }
+
+        .campo-completo {
+            grid-column: 1 / -1;
+        }
+
+        .campo label {
+            color: var(--texto);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d9c8b8;
+            border-radius: 9px;
+            background: white;
+            color: var(--texto);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .campo input:focus,
+        .campo textarea:focus {
+            border-color: var(--rojo);
+            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.10);
+        }
+
+        .campo textarea {
+            min-height: 95px;
+            resize: vertical;
+        }
+
+        .campo input::placeholder,
+        .campo textarea::placeholder {
+            color: #9a9189;
+        }
+
+        .ayuda-campo {
+            color: var(--gris);
+            font-size: 12px;
+        }
+
+        .resumen-carrito {
+            padding-top: 22px;
+        }
+
+        .fila-total {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .acciones-carrito {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .acciones-carrito button {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .boton-vaciar {
+            border: 1px solid #d7c6b7;
+            background: white;
+            color: var(--texto);
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .boton-pedido {
+            border: none;
+            background: var(--verde);
+            color: #073b1b;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .boton-vaciar:hover {
+            background: #f8eee5;
+        }
+
+        .boton-pedido:hover {
+            background: #19b957;
+        }
+
+        .nota-carrito {
+            color: var(--gris);
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        footer {
+            background: #351d19;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            color: #f4dcd2;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .whatsapp-flotante {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            background: var(--verde);
+            color: #073b1b;
+            padding: 12px 18px;
+            border-radius: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .whatsapp-flotante:hover {
+            transform: translateY(-3px);
+            background: #19b957;
+        }
+
+        .whatsapp-flotante svg {
+            width: 25px;
+            height: 25px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 1000px) {
+            .productos {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 750px) {
+            .productos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px;
+            }
+
+            .imagen-producto {
+                height: 165px;
+            }
+
+            .contenido-producto {
+                padding: 14px;
+            }
+
+            .bienvenida {
+                padding: 48px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .encabezado {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .marca {
+                justify-content: center;
+                text-align: left;
+            }
+
+            .productos {
+                grid-template-columns: 1fr;
+            }
+
+            .imagen-producto {
+                height: 220px;
+            }
+
+            .contenido-producto {
+                padding: 18px;
+            }
+
+            .caja-carrito {
+                padding: 18px;
+            }
+
+            .formulario-domicilio {
+                padding: 16px;
+            }
+
+            .rejilla-formulario {
+                grid-template-columns: 1fr;
+            }
+
+            .campo-completo {
+                grid-column: auto;
+            }
+
+            .articulo-carrito {
+                align-items: flex-start;
+            }
+
+            .whatsapp-flotante {
+                right: 14px;
+                bottom: 14px;
+                padding: 11px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="contenedor encabezado">
+            <div class="marca">
+                <div class="logo" aria-hidden="true">🍔</div>
+                <div>
+                    <h2>Comi Rápidas El Resposo</h2>
+                    <p>Sabor casero · Hecho con amor ❤️</p>
+                </div>
+            </div>
+            <a class="boton-menu" href="#menu">Ver nuestro menú ↓</a>
+        </div>
+    </header>
+
+    <!-- BIENVENIDA -->
+    <section class="bienvenida">
+        <div class="contenedor">
+            <span class="etiqueta">❤️ BIENVENIDOS ❤️</span>
+
+            <h1>
+                ¡El sabor de hogar,
+                <span>directo hasta tu puerta!</span>
+            </h1>
+
+            <p class="descripcion">
+                En Comi Rápidas El Resposo preparamos deliciosas comidas
+                para compartir con las personas que más quieres.
+                ¡Antójate, elige tus favoritos y haz tu pedido!
+            </p>
+
+            <p class="zonas">
+                📍 <strong>Domicilios en:</strong>
+                Campeón Medio, Campeón Alto, Campeón Bajo y Fresno, Tolima.
+            </p>
+
+            <a class="boton-principal" href="#menu">🍟 Ver nuestro menú</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- MENÚ -->
+        <section class="seccion-menu" id="menu">
+            <div class="contenedor">
+                <div class="titulo-seccion">
+                    <span class="subtitulo">PREPARADO CON CARIÑO</span>
+                    <h2>🍔 Nuestro delicioso menú</h2>
+                    <p>Elige tus favoritos y disfruta algo rico hoy.</p>
+                </div>
+
+                <div class="productos">
+
+                    <!-- AREPA -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/arepa.jpg" alt="Arepa con queso" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🫓 Arepa con queso</h3>
+                            <p class="descripcion-producto">Una deliciosa arepa para disfrutar a cualquier hora del día.</p>
+                            <p class="precio">$4.000</p>
+                            <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Arepa con queso', 4000)">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20pedir%20una%20arepa%20con%20queso%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- HAMBURGUESA -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/hamburguesa.jpg" alt="Hamburguesas" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🍔 Hamburguesas</h3>
+                            <p class="descripcion-producto">Una opción deliciosa para calmar ese antojo de comida rápida.</p>
+                            <select class="opciones-precio" id="opcion-hamburguesa" aria-label="Selecciona tu hamburguesa">
+                                <option value="9000">Hamburguesa - $9.000</option>
+                                <option value="11000">Hamburguesa especial - $11.000</option>
+                            </select>
+                            <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Hamburguesa', 'opcion-hamburguesa')">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20hamburguesas%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- PERRO CALIENTE -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/hotdog.jpg" alt="Perros calientes" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🌭 Perros calientes</h3>
+                            <p class="descripcion-producto">Una opción clásica, deliciosa y perfecta para compartir.</p>
+                            <select class="opciones-precio" id="opcion-perro" aria-label="Selecciona tu perro caliente">
+                                <option value="9000">Perro caliente - $9.000</option>
+                                <option value="11000">Perro especial - $11.000</option>
+                            </select>
+                            <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Perro caliente', 'opcion-perro')">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20perros%20calientes%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- SALCHIPAPA -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/salchipapa.jpg" alt="Salchipapas" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🍟 Salchipapas</h3>
+                            <p class="descripcion-producto">La combinación perfecta para disfrutar algo diferente.</p>
+                            <select class="opciones-precio" id="opcion-salchipapa" aria-label="Selecciona tu salchipapa">
+                                <option value="16000">Salchipapa - $16.000</option>
+                                <option value="20000">Salchipapa especial - $20.000</option>
+                            </select>
+                            <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Salchipapa', 'opcion-salchipapa')">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20salchipapas%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- SÁNDWICH -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/sandwich.jpg" alt="Sándwiches" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🥪 Sándwiches</h3>
+                            <p class="descripcion-producto">Una alternativa práctica y deliciosa para cualquier momento.</p>
+                            <select class="opciones-precio" id="opcion-sandwich" aria-label="Selecciona tu sándwich">
+                                <option value="3000">Sándwich - $3.000</option>
+                                <option value="6000">Sándwich especial - $6.000</option>
+                            </select>
+                            <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Sándwich', 'opcion-sandwich')">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20s%C3%A1ndwiches%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- PIZZA -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/pizza.jpg" alt="Pizza" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🍕 Pizza</h3>
+                            <p class="descripcion-producto">Una opción deliciosa para compartir con familiares y amigos.</p>
+                            <select class="opciones-precio" id="opcion-pizza" aria-label="Selecciona tu pizza">
+                                <option value="8000">Porción de pizza - $8.000</option>
+                                <option value="64000">Pizza entera - $64.000</option>
+                            </select>
+                            <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Pizza', 'opcion-pizza')">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20pizza%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- HUEVOS -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/huevos.jpg" alt="Cubeta de huevos" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🥚 Cubeta de huevos</h3>
+                            <p class="descripcion-producto">Una opción práctica para llevar a casa.</p>
+                            <p class="precio">$14.000</p>
+                            <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Cubeta de huevos', 14000)">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20pedir%20una%20cubeta%20de%20huevos%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- POSTRES -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/postres.jpg" alt="Postres" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🍰 Postres</h3>
+                            <p class="descripcion-producto">Dale un toque dulce a tu día. Pregunta por los sabores disponibles.</p>
+                            <p class="precio">Consulta el precio</p>
+                            <a class="boton-producto" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20conocer%20los%20postres%20disponibles%20y%20sus%20precios%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Consultar por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CARRITO Y FORMULARIO -->
+        <section class="seccion-carrito" id="carrito">
+            <div class="contenedor">
+                <div class="titulo-seccion">
+                    <span class="subtitulo">TU PEDIDO</span>
+                    <h2>🛒 Mi carrito</h2>
+                    <p>Revisa tus productos y completa tus datos para el domicilio.</p>
+                </div>
+
+                <div class="caja-carrito">
+                    <div class="cabecera-carrito">
+                        <h2>Tu compra</h2>
+                        <span class="contador" id="contador-carrito">0 productos</span>
+                    </div>
+
+                    <div id="lista-carrito">
+                        <p class="carrito-vacio">
+                            🛍️ Todavía no has agregado productos.
+                            ¡Elige algo delicioso del menú!
+                        </p>
+                    </div>
+
+                    <!-- NUEVO FORMULARIO -->
+                    <form id="formulario-domicilio" class="formulario-domicilio">
+                        <h3>🛵 Datos para tu domicilio</h3>
+                        <p class="texto-formulario">
+                            Completa tus datos para que podamos organizar la entrega.
+                            Los campos marcados con * son obligatorios.
+                        </p>
+
+                        <div class="rejilla-formulario">
+                            <div class="campo">
+                                <label for="nombre-cliente">Nombre completo *</label>
+                                <input
+                                    type="text"
+                                    id="nombre-cliente"
+                                    name="nombre"
+                                    placeholder="¿Cómo te llamas?"
+                                    autocomplete="name"
+                                    maxlength="100"
+                                    required
+                                >
+                            </div>
+
+                            <div class="campo">
+                                <label for="telefono-cliente">Teléfono *</label>
+                                <input
+                                    type="tel"
+                                    id="telefono-cliente"
+                                    name="telefono"
+                                    placeholder="Tu número de contacto"
+                                    autocomplete="tel"
+                                    inputmode="tel"
+                                    maxlength="20"
+                                    required
+                                >
+                            </div>
+
+                            <div class="campo campo-completo">
+                                <label for="direccion-cliente">Dirección de entrega *</label>
+                                <input
+                                    type="text"
+                                    id="direccion-cliente"
+                                    name="direccion"
+                                    placeholder="Ej.: casa, calle, número o punto de referencia"
+                                    autocomplete="street-address"
+                                    maxlength="180"
+                                    required
+                                >
+                            </div>
+
+                            <div class="campo campo-completo">
+                                <label for="sector-cliente">Vereda o sector *</label>
+                                <input
+                                    type="text"
+                                    id="sector-cliente"
+                                    name="sector"
+                                    placeholder="Ej.: Campeón Medio, Campeón Alto, Fresno..."
+                                    maxlength="100"
+                                    required
+                                >
+                                <span class="ayuda-campo">
+                                    Escribe el sector donde debemos entregar tu pedido.
+                                </span>
+                            </div>
+
+                            <div class="campo campo-completo">
+                                <label for="observaciones-cliente">Observaciones (opcional)</label>
+                                <textarea
+                                    id="observaciones-cliente"
+                                    name="observaciones"
+                                    placeholder="Indicaciones para llegar, instrucciones del pedido u otra información."
+                                    maxlength="500"
+                                ></textarea>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="resumen-carrito">
+                        <div class="fila-total">
+                            <span>Subtotal:</span>
+                            <span id="subtotal-carrito">$0</span>
+                        </div>
+
+                        <div class="acciones-carrito">
+                            <button type="button" class="boton-vaciar" id="vaciar-carrito">
+                                🗑️ Vaciar carrito
+                            </button>
+
+                            <button type="button" class="boton-pedido" id="enviar-pedido">
+                                💬 Confirmar datos y enviar por WhatsApp
+                            </button>
+                        </div>
+
+                        <p class="nota-carrito">
+                            El subtotal no incluye el domicilio. El valor y la disponibilidad
+                            se confirman por WhatsApp. Al continuar, se abrirá WhatsApp con
+                            el resumen de tu pedido y los datos de entrega.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <h2>🍔 Comi Rápidas El Resposo</h2>
+        <p>El sabor de casa, preparado con cariño ❤️</p>
+        <p>📍 Campeón Medio, Campeón Alto, Campeón Bajo y Fresno, Tolima.</p>
+        <p>© <span id="anio"></span> Comi Rápidas El Resposo. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE -->
+    <a
+        class="whatsapp-flotante"
+        href="https://wa.me/573028525451?text=Hola%2C%20buenas%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20men%C3%BA%20de%20Comi%20R%C3%A1pidas%20El%20Resposo."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+    >
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 .5A15.3 15.3 0 0 0 2.8 23.6L.7 31l7.6-2A15.4 15.4 0 1 0 16 .5zm0 28a12.5 12.5 0 0 1-6.3-1.7l-.5-.3-4.5 1.2 1.2-4.4-.3-.5A12.5 12.5 0 1 1 16 28.5zm6.9-9.4c-.4-.2-2.2-1.1-2.6-1.2-.4-.2-.6-.2-.9.2-.2.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7l-1.2-2.8c-.3-.7-.6-.6-.9-.6h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.3s1.4 3.8 1.6 4c.2.3 2.8 4.2 6.7 5.9.9.4 1.7.6 2.3.8 1 .3 1.9.2 2.6.1.8-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
+        </svg>
+        <span>¡Pide por WhatsApp!</span>
+    </a>
+
+    <script>
+        // Número comercial de WhatsApp en formato internacional.
+        const WHATSAPP = "573028525451";
+
+        // Aquí se almacenan los productos seleccionados.
+        let carrito = [];
+
+        // Formatea los precios como pesos colombianos.
+        function formatoPrecio(valor) {
+            return "$" + Number(valor).toLocaleString("es-CO");
+        }
+
+        // Agrega productos que tienen un precio fijo.
+        function agregarAlCarrito(nombre, precio) {
+            agregarProducto(nombre, precio);
+        }
+
+        // Agrega productos cuyo precio depende de la opción seleccionada.
+        function agregarSeleccion(nombreBase, idSelector) {
+            const selector = document.getElementById(idSelector);
+            const precio = Number(selector.value);
+            const opcion = selector.options[selector.selectedIndex].text;
+            const nombreOpcion = opcion.split(" - ")[0];
+            const nombre = nombreBase + " (" + nombreOpcion + ")";
+
+            agregarProducto(nombre, precio);
+        }
+
+        // Añade el producto o aumenta su cantidad si ya existe.
+        function agregarProducto(nombre, precio) {
+            const existente = carrito.find(function(producto) {
+                return producto.nombre === nombre &&
+                       producto.precio === precio;
+            });
+
+            if (existente) {
+                existente.cantidad++;
+            } else {
+                carrito.push({
+                    nombre: nombre,
+                    precio: precio,
+                    cantidad: 1
+                });
+            }
+
+            actualizarCarrito();
+
+            document.getElementById("carrito").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
+        // Actualiza los artículos, cantidades y subtotal en pantalla.
+        function actualizarCarrito() {
+            const lista = document.getElementById("lista-carrito");
+            const subtotalElemento = document.getElementById("subtotal-carrito");
+            const contador = document.getElementById("contador-carrito");
+
+            lista.innerHTML = "";
+
+            let subtotal = 0;
+            let unidades = 0;
+
+            carrito.forEach(function(producto, indice) {
+                const totalProducto = producto.precio * producto.cantidad;
+                subtotal += totalProducto;
+                unidades += producto.cantidad;
+
+                const articulo = document.createElement("div");
+                articulo.className = "articulo-carrito";
+
+                const datos = document.createElement("div");
+                datos.className = "datos-articulo";
+
+                const nombre = document.createElement("strong");
+                nombre.textContent = producto.nombre;
+
+                const detalle = document.createElement("small");
+                detalle.textContent =
+                    formatoPrecio(producto.precio) +
+                    " por unidad · Total: " +
+                    formatoPrecio(totalProducto);
+
+                const salto = document.createElement("br");
+
+                const eliminar = document.createElement("button");
+                eliminar.type = "button";
+                eliminar.className = "boton-eliminar";
+                eliminar.textContent = "Eliminar";
+                eliminar.addEventListener("click", function() {
+                    eliminarProducto(indice);
+                });
+
+                datos.appendChild(nombre);
+                datos.appendChild(detalle);
+                datos.appendChild(salto);
+                datos.appendChild(eliminar);
+
+                const controles = document.createElement("div");
+                controles.className = "controles-cantidad";
+
+                const menos = document.createElement("button");
+                menos.type = "button";
+                menos.className = "boton-cantidad";
+                menos.textContent = "−";
+                menos.setAttribute("aria-label", "Restar una unidad");
+                menos.addEventListener("click", function() {
+                    cambiarCantidad(indice, -1);
+                });
+
+                const cantidad = document.createElement("span");
+                cantidad.textContent = producto.cantidad;
+
+                const mas = document.createElement("button");
+                mas.type = "button";
+                mas.className = "boton-cantidad";
+                mas.textContent = "+";
+                mas.setAttribute("aria-label", "Agregar una unidad");
+                mas.addEventListener("click", function() {
+                    cambiarCantidad(indice, 1);
+                });
+
+                controles.appendChild(menos);
+                controles.appendChild(cantidad);
+                controles.appendChild(mas);
+
+                articulo.appendChild(datos);
+                articulo.appendChild(controles);
+                lista.appendChild(articulo);
+            });
+
+            if (carrito.length === 0) {
+                lista.innerHTML =
+                    '<p class="carrito-vacio">' +
+                    '🛍️ Todavía no has agregado productos. ' +
+                    '¡Elige algo delicioso del menú!' +
+                    '</p>';
+            }
+
+            subtotalElemento.textContent = formatoPrecio(subtotal);
+
+            contador.textContent =
+                unidades + (unidades === 1 ? " producto" : " productos");
+        }
+
+        // Cambia la cantidad de un producto.
+        function cambiarCantidad(indice, cambio) {
+            if (!carrito[indice]) {
+                return;
+            }
+
+            carrito[indice].cantidad += cambio;
+
+            if (carrito[indice].cantidad <= 0) {
+                carrito.splice(indice, 1);
+            }
+
+            actualizarCarrito();
+        }
+
+        // Elimina un producto del carrito.
+        function eliminarProducto(indice) {
+            carrito.splice(indice, 1);
+            actualizarCarrito();
+        }
+
+        // Vacía el carrito únicamente después de confirmar.
+        document.getElementById("vaciar-carrito").addEventListener("click", function() {
+            if (carrito.length === 0) {
+                alert("Tu carrito ya está vacío.");
+                return;
+            }
+
+            if (confirm("¿Seguro que quieres vaciar todo el carrito?")) {
+                carrito = [];
+                actualizarCarrito();
+            }
+        });
+
+        // Comprueba el formulario, crea el resumen y abre WhatsApp.
+        document.getElementById("enviar-pedido").addEventListener("click", function() {
+            if (carrito.length === 0) {
+                alert("Primero agrega al menos un producto al carrito.");
+                document.getElementById("menu").scrollIntoView({
+                    behavior: "smooth"
+                });
+                return;
+            }
+
+            const formulario = document.getElementById("formulario-domicilio");
+
+            // El navegador indica cuáles campos obligatorios faltan.
+            if (!formulario.reportValidity()) {
+                formulario.querySelector(":invalid").focus();
+                return;
+            }
+
+            const nombre = document.getElementById("nombre-cliente").value.trim();
+            const telefono = document.getElementById("telefono-cliente").value.trim();
+            const direccion = document.getElementById("direccion-cliente").value.trim();
+            const sector = document.getElementById("sector-cliente").value.trim();
+            const observaciones = document.getElementById("observaciones-cliente").value.trim();
+
+            if (!nombre || !telefono || !direccion || !sector) {
+                alert("Completa tu nombre, teléfono, dirección y sector.");
+                return;
+            }
+
+            let subtotal = 0;
+
+            let lineas = [
+                "¡Hola! Quiero hacer un pedido en Comi Rápidas El Resposo.",
+                "",
+                "DATOS DEL CLIENTE",
+                "Nombre: " + nombre,
+                "Teléfono: " + telefono,
+                "Dirección: " + direccion,
+                "Vereda o sector: " + sector
+            ];
+
+            if (observaciones) {
+                lineas.push("Observaciones: " + observaciones);
+            }
+
+            lineas.push("");
+            lineas.push("MI PEDIDO");
+
+            carrito.forEach(function(producto) {
+                const totalProducto = producto.precio * producto.cantidad;
+                subtotal += totalProducto;
+
+                lineas.push(
+                    "- " + producto.nombre +
+                    " x" + producto.cantidad +
+                    " = " + formatoPrecio(totalProducto)
+                );
+            });
+
+            lineas.push("");
+            lineas.push("SUBTOTAL: " + formatoPrecio(subtotal));
+            lineas.push("El costo del domicilio está pendiente de confirmación.");
+            lineas.push("");
+            lineas.push("Por favor, confirmen disponibilidad y valor total.");
+
+            // Codifica el mensaje completo para que nombres, tildes y
+            // direcciones se transmitan correctamente en el enlace.
+            const mensaje = encodeURIComponent(lineas.join("\n"));
+            const enlace = "https://wa.me/" + WHATSAPP + "?text=" + mensaje;
+
+            // Abre WhatsApp. El cliente todavía debe revisar y enviar el mensaje.
+            window.open(enlace, "_blank", "noopener,noreferrer");
+        });
+
+        // Año automático en el pie de página.
+        document.getElementById("anio").textContent = new Date().getFullYear();
+
+        // Inicializa el carrito.
+        actualizarCarrito();
+    </script>
+
+</body>
+</html>
