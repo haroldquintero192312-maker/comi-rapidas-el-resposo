@@ -187,7 +187,7 @@ background-image: url("imagenes/fondo.jpg");
             padding: 55px 0 65px;
         }
 
-        .titulo-seccion {
+      .titulo-seccion   {
             text-align: center;
             margin-bottom: 35px;
         }
@@ -205,15 +205,20 @@ background-image: url("imagenes/fondo.jpg");
             margin: 5px 0;
         }
 
-        .titulo-seccion p {
-            color: var(--gris);
-        }
-
-        .productos {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 23px;
-        }
+      .titulo-seccion p {
+    color: #ffffff;
+    font-size: 16px;
+}
+.productos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 
         .producto {
             display: flex;
@@ -232,23 +237,27 @@ background-image: url("imagenes/fondo.jpg");
             box-shadow: 0 13px 30px rgba(75, 45, 20, 0.16);
         }
 
-        .imagen-producto {
-            height: 190px;
-            padding: 12px;
-            background: #fffdf9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+      
+.imagen-producto {
+    height: 125px;
+    padding: 8px;
+    background: #fffdf9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
-        .imagen-producto img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-        }
+.imagen-producto img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
 
         .contenido-producto {
             padding: 18px;
@@ -718,23 +727,102 @@ background-image: url("imagenes/fondo.jpg");
 
                 <div class="productos">
 
-                    <!-- AREPA -->
+                
+                    <!-- AREPA CON QUESO -->
                     <article class="producto">
                         <div class="imagen-producto">
-                            <img src="imagenes/arepa.jpg" alt="Arepa con queso" loading="lazy">
+                            <img src="imagenes/arepa con queso.jpg" alt="Arepa con queso" loading="lazy">
                         </div>
                         <div class="contenido-producto">
                             <h3>🫓 Arepa con queso</h3>
-                            <p class="descripcion-producto">Una deliciosa arepa para disfrutar a cualquier hora del día.</p>
-                            <p class="precio">$4.000</p>
-                            <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Arepa con queso', 4000)">
+                            <p class="descripcion-producto">Una deliciosa arepa con queso, perfecta para cualquier hora del día.</p>
+                            <p class="precio">$3.000</p>
+                            <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Arepa con queso', 3000)">
                                 + Agregar al carrito
                             </button>
-                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20pedir%20una%20arepa%20con%20queso%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20una%20arepa%20con%20queso%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
                                 Pedir por WhatsApp
                             </a>
                         </div>
                     </article>
+                   
+<!-- BANDEJA CON CHORIZO -->
+<article class="producto">
+    <div class="imagen-producto">
+        <img
+            src="imagenes/bandeja con chorizo.jpg"
+            alt="Bandeja con chorizo"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="contenido-producto">
+        <h3>🌭 Bandeja con chorizo</h3>
+
+        <p class="descripcion-producto">
+            Una deliciosa combinación de arepa y chorizo,
+            perfecta para disfrutar en cualquier momento.
+        </p>
+
+        <p class="precio">$10.000</p>
+
+        <button
+            type="button"
+            class="boton-producto boton-agregar"
+            onclick="agregarAlCarrito('Bandeja con chorizo', 10000)"
+        >
+            + Agregar al carrito
+        </button>
+
+        <a
+            class="boton-producto"
+            style="margin-top: 9px"
+            href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20una%20bandeja%20con%20chorizo%20en%20Comi%20R%C3%A1pidas%20El%20Resposo."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Pedir por WhatsApp
+        </a>
+    </div>
+</article>
+
+
+                    <!-- AREPA DE JAMON Y QUESO -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/arepa con jamon y queso.jpg" alt="Arepa de jamón y queso" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🫓 Arepa de jamón y queso</h3>
+                            <p class="descripcion-producto">Una deliciosa combinación de jamón y queso.</p>
+                            <p class="precio">$4.500</p>
+                            <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Arepa de jamón y queso', 4500)">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20una%20arepa%20de%20jamon%20y%20queso%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- AREPA RELLENA -->
+                    <article class="producto">
+                        <div class="imagen-producto">
+                            <img src="imagenes/arepa rellena.jpg" alt="Arepa rellena" loading="lazy">
+                        </div>
+                        <div class="contenido-producto">
+                            <h3>🫓 Arepa rellena</h3>
+                            <p class="descripcion-producto">Una arepa rellena, ideal para disfrutar una comida deliciosa.</p>
+                            <p class="precio">$11.000</p>
+                            <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Arepa rellena', 11000)">
+                                + Agregar al carrito
+                            </button>
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20una%20arepa%20rellena%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </article>
+
 
                     <!-- HAMBURGUESA -->
                     <article class="producto">
@@ -746,12 +834,12 @@ background-image: url("imagenes/fondo.jpg");
                             <p class="descripcion-producto">Una opción deliciosa para calmar ese antojo de comida rápida.</p>
                             <select class="opciones-precio" id="opcion-hamburguesa" aria-label="Selecciona tu hamburguesa">
                                 <option value="9000">Hamburguesa - $9.000</option>
-                                <option value="11000">Hamburguesa especial - $11.000</option>
+                                <option value="11000">Hamburguesa especial - $15.000</option>
                             </select>
                             <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Hamburguesa', 'opcion-hamburguesa')">
                                 + Agregar al carrito
                             </button>
-                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20hamburguesas%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20hamburguesas%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -772,7 +860,7 @@ background-image: url("imagenes/fondo.jpg");
                             <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Perro caliente', 'opcion-perro')">
                                 + Agregar al carrito
                             </button>
-                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20perros%20calientes%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20perros%20calientes%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -793,7 +881,7 @@ background-image: url("imagenes/fondo.jpg");
                             <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Salchipapa', 'opcion-salchipapa')">
                                 + Agregar al carrito
                             </button>
-                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20salchipapas%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20salchipapas%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -814,7 +902,7 @@ background-image: url("imagenes/fondo.jpg");
                             <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Sándwich', 'opcion-sandwich')">
                                 + Agregar al carrito
                             </button>
-                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20s%C3%A1ndwiches%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20s%C3%A1ndwiches%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -835,7 +923,7 @@ background-image: url("imagenes/fondo.jpg");
                             <button class="boton-producto boton-agregar" onclick="agregarSeleccion('Pizza', 'opcion-pizza')">
                                 + Agregar al carrito
                             </button>
-                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20pizza%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20pizza%20de%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -853,30 +941,101 @@ background-image: url("imagenes/fondo.jpg");
                             <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Cubeta de huevos', 14000)">
                                 + Agregar al carrito
                             </button>
-                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20pedir%20una%20cubeta%20de%20huevos%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
+                            <a class="boton-producto" style="margin-top:9px" href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20una%20cubeta%20de%20huevos%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
                                 Pedir por WhatsApp
                             </a>
                         </div>
                     </article>
 
-                    <!-- POSTRES -->
-                    <article class="producto">
-                        <div class="imagen-producto">
-                            <img src="imagenes/postres.jpg" alt="Postres" loading="lazy">
-                        </div>
-                        <div class="contenido-producto">
-                            <h3>🍰 Postres</h3>
-                            <p class="descripcion-producto">Dale un toque dulce a tu día. Pregunta por los sabores disponibles.</p>
-                            <p class="precio">Consulta el precio</p>
-                            <a class="boton-producto" href="https://wa.me/573028525451?text=Hola%2C%20quiero%20conocer%20los%20postres%20disponibles%20y%20sus%20precios%20en%20Comi%20R%C3%A1pidas%20El%20Resposo." target="_blank" rel="noopener noreferrer">
-                                Consultar por WhatsApp
-                            </a>
-                        </div>
-                    </article>
+                   
+<!-- POSTRE: MERENGÓN -->
+<article class="producto">
+    <div class="imagen-producto">
+        <img src="imagenes/merengon.jpg" alt="Merengón" loading="lazy">
+    </div>
+    <div class="contenido-producto">
+        <h3>🍓 Merengón</h3>
+        <p class="descripcion-producto">Un delicioso postre de merengue, crema y fresas.</p>
+        <p class="precio">$15.000</p>
+        <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Merengón', 15000)">
+            + Agregar al carrito
+        </button>
+        
+<a class="boton-producto" style="margin-top:9px"
+   href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20un%20Mereng%C3%B3n%20en%20Comi%20R%C3%A1pidas%20El%20Resposo."
+   target="_blank" rel="noopener noreferrer">
+    Pedir por WhatsApp
+</a>
 
-                </div>
-            </div>
-        </section>
+    </div>
+</article>
+
+<!-- POSTRE: FRESAS CON CREMA -->
+<article class="producto">
+    <div class="imagen-producto">
+        <img src="imagenes/fresas con crema.jpg" alt="Fresas con crema" loading="lazy">
+    </div>
+    <div class="contenido-producto">
+        <h3>🍓 Fresas con crema</h3>
+        <p class="descripcion-producto">Fresas deliciosas acompañadas de crema.</p>
+        <p class="precio">$10.000</p>
+        <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Fresas con crema', 10000)">
+            + Agregar al carrito
+        </button>
+        
+<a class="boton-producto" style="margin-top:9px"
+   href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20unas%20fresas%20con%20crema%20en%20Comi%20R%C3%A1pidas%20El%20Resposo."
+   target="_blank" rel="noopener noreferrer">
+    Pedir por WhatsApp
+</a>
+
+    </div>
+</article>
+
+<!-- POSTRE: OBLEA CUCHAREABLE -->
+<article class="producto">
+    <div class="imagen-producto">
+        <img src="imagenes/oblea cuchareable.jpg" alt="Oblea cuchareable" loading="lazy">
+    </div>
+    <div class="contenido-producto">
+        <h3>🥄 Oblea cuchareable</h3>
+        <p class="descripcion-producto">Una dulce combinación para disfrutar a cucharadas.</p>
+        <p class="precio">$8.000</p>
+        <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Oblea cuchareable', 8000)">
+            + Agregar al carrito
+        </button>
+        
+<a class="boton-producto" style="margin-top:9px"
+   href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20una%20oblea%20cuchareable%20en%20Comi%20R%C3%A1pidas%20El%20Resposo."
+   target="_blank" rel="noopener noreferrer">
+    Pedir por WhatsApp
+</a>
+
+    </div>
+</article>
+
+<!-- POSTRE: OBLEAS -->
+<article class="producto">
+    <div class="imagen-producto">
+        <img src="imagenes/obleas.jpg" alt="Obleas" loading="lazy">
+    </div>
+    <div class="contenido-producto">
+        <h3>🧇 Obleas</h3>
+        <p class="descripcion-producto">Las tradicionales obleas para darte un gusto dulce.</p>
+        <p class="precio">$4.000</p>
+        <button class="boton-producto boton-agregar" onclick="agregarAlCarrito('Obleas', 4000)">
+            + Agregar al carrito
+        </button>
+        
+<a class="boton-producto" style="margin-top:9px"
+   href="https://wa.me/573142763257?text=Hola%2C%20quiero%20pedir%20unas%20obleas%20en%20Comi%20R%C3%A1pidas%20El%20Resposo."
+   target="_blank" rel="noopener noreferrer">
+    Pedir por WhatsApp
+</a>
+
+    </div>
+</article>
+</div>
 
         <!-- CARRITO Y FORMULARIO -->
         <section class="seccion-carrito" id="carrito">
@@ -1002,6 +1161,7 @@ background-image: url("imagenes/fondo.jpg");
             </div>
         </section>
     </main>
+
         <!-- SECCIÓN CÓDIGO QR -->
     <section style="padding: 40px 20px; text-align: center; background: #fff8ed;">
         <h2 style="color: #991b1b; margin-bottom: 10px;">
@@ -1025,7 +1185,6 @@ background-image: url("imagenes/fondo.jpg");
     </section>
 
 
-
     <!-- PIE DE PÁGINA -->
     <footer>
         <h2>🍔 Comi Rápidas El Resposo</h2>
@@ -1037,7 +1196,7 @@ background-image: url("imagenes/fondo.jpg");
     <!-- BOTÓN FLOTANTE -->
     <a
         class="whatsapp-flotante"
-        href="https://wa.me/573028525451?text=Hola%2C%20buenas%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20men%C3%BA%20de%20Comi%20R%C3%A1pidas%20El%20Resposo."
+        href="https://wa.me/573142763257?text=Hola%2C%20buenas%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20men%C3%BA%20de%20Comi%20R%C3%A1pidas%20El%20Resposo."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
@@ -1050,7 +1209,7 @@ background-image: url("imagenes/fondo.jpg");
 
     <script>
         // Número comercial de WhatsApp en formato internacional.
-        const WHATSAPP = "573028525451";
+        const WHATSAPP = "573142763257";
 
         // Aquí se almacenan los productos seleccionados.
         let carrito = [];
